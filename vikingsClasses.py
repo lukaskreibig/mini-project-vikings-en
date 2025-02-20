@@ -64,6 +64,8 @@ class War():
         return result
 
     def saxonAttack(self):
+        if not self.saxonArmy:
+            return None
         random_saxon: Saxon = random.choice(self.saxonArmy)
         random_viking: Viking = random.choice(self.vikingArmy)
         damage = random_saxon.attack()
