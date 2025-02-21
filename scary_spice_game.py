@@ -1,3 +1,4 @@
+import pygame
 from vikingsClasses import *
 
 in_any_bad_situation = "Something is badly wrong, game over."
@@ -75,9 +76,16 @@ def user_interaction():
         war_status = war.showStatus()
         print(war_status)
         print()
-        
+
+def intro_sound():
+    pygame.mixer.init()
+    pygame.mixer.music.load('./viking-toms-loop-240499.mp3')
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        user_interaction()
+    pygame.quit()
         
 if __name__ == '__main__':
     print("Vikings and Saxons are in the state of war!")
     war = War()
-    user_interaction()
+    intro_sound()
